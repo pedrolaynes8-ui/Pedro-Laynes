@@ -1,6 +1,3 @@
-# Pedro-Laynes
-Repositorio de clases de Bioinformática - UNMSM Sept 2025
-
 # Caracterización molecular de larvas de anisákidos (Nematoda: Anisakidae) en peces comerciales de Loreto - Perú, mediante el análisis del gen mitocondrial COX II
 
 # Objetivo general
