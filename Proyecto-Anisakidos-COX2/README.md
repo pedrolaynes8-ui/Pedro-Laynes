@@ -1,4 +1,3 @@
-
 # Caracterización molecular de larvas de anisákidos (Nematoda: Anisakidae) en peces comerciales de Loreto - Perú
 
 ## Descripción
@@ -33,5 +32,7 @@ El análisis se basa en la secuenciación Sanger del gen mitocondrial COX2.
 /data/ --> datos crudos y procesados
 /scripts/ --> scripts de análisis
 /results/ --> alineamientos y árboles
+/docs/ --> informes y pipeline documentado
+/notebooks/ --> notebooks de Google Colab
 /docs/ --> informes y pipeline documentado
 /notebooks/ --> notebooks de Google Colab
