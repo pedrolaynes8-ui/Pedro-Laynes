@@ -1,0 +1,120 @@
+
+---
+title: "Caracterización molecular de larvas de Anisákidos en peces comerciales de Loreto"
+author: "PEDRO FERNANDO LAYNES ZELA"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+# 1. Introducción
+La familia Anisakidae incluye nemátodos parásitos que afectan peces y, eventualmente, a humanos.
+El análisis molecular del gen mitocondrial COX2 permite identificar especies, analizar diversidad genética y construir árboles filogenéticos.
+
+# 2. Hipótesis
+**H1:** El uso de herramientas moleculares permite identificar e inferir la diversidad genética de nemátodos Anisakidae presentes en peces comerciales en Loreto.
+
+# 3. Objetivos
+## Objetivo general
+Caracterizar molecularmente larvas de nemátodos Anisakidae mediante secuenciación del gen mitocondrial COX2 y el análisis filogenético comparativo con especies de referencia.
+
+## Objetivos específicos
+- Identificar morfotipos larvales mediante análisis morfológico y morfométrico.
+- Estandarizar y optimizar el procesamiento molecular del gen COX2 (extracción, amplificación y secuenciación).
+- Determinar la identidad taxonómica de las muestras mediante análisis filogenético con secuencias de referencia del NCBI.
+- Evaluar la diversidad genética intra e interespecífica mediante análisis de haplotipos y parámetros poblacionales.
+
+# 4. Material y métodos
+- 4 larvas de morfotipo Contracaecum: 453, 454, 455, 456
+- Secuencias Sanger Forward y Reverse
+- Archivos raw: `/data/raw/`
+- Archivos procesados: `/data/processed/`
+
+## Flujo bioinformático
+1. Lectura de archivos `.ab1` (Biopython)
+2. Generación de secuencia consenso Forward + Reverse
+3. Trimming y limpieza de Ns
+4. Exportación a FASTA limpio
+5. BLAST preliminar en NCBI
+6. Alineamiento múltiple (MAFFT / MUSCLE)
+7. Construcción de árboles filogenéticos (NJ, ML, Bayesian)
+8. Análisis de diversidad genética (opcional)
+
+# 5. Resultados preliminares
+- Secuencias limpias disponibles en `data/processed/`
+- Archivos FASTA:
+
+453_COX2_clean.fasta
+454_COX2_clean.fasta
+455_COX2_clean.fasta
+456_COX2_clean.fasta
+
+
+Estas secuencias están listas para análisis filogenético.
+
+---
+
+## 🖥️ Pipeline bioinformático del proyecto
+
+1. **Lectura de archivos AB1** (Forward y Reverse)
+2. **Generación de reverse complement**
+3. **Alineamiento F + R (pairwise)**
+4. **Construcción de secuencia consenso**
+5. **Trimming y limpieza de Ns**
+6. **Exportación en formato FASTA**
+7. **BLAST en NCBI para identificación preliminar**
+8. **Alineamiento múltiple (MAFFT / MUSCLE)**
+9. **Filogenia (NJ, ML, Bayesian)**
+10. **Cálculo de diversidad genética (opcional)**
+
+Los scripts correspondientes se encuentran en la carpeta `/scripts`.
+
+---
+
+## 🗂️ Estructura del repositorio
+
+Proyecto-Anisakidos-COX2/
+│
+├── data/
+│ ├── raw/ # Archivos .ab1 originales
+│ ├── processed/ # FASTA limpios y consensos
+│ └── metadata/ # Info de muestras (por completar)
+│
+├── scripts/ # Análisis bioinformáticos (Python/R)
+│
+├── results/
+│ ├── blast/
+│ ├── alineamientos/
+│ ├── arboles/
+│ └── figuras/
+│
+├── docs/ # Informe en RMarkdown, metodología y reportes
+│
+└── notebooks/ # Notebooks de Google Colab del proyecto
+
+
+---
+
+## 🧰 Tecnologías utilizadas
+
+- **Google Colab**
+- **Python + Biopython**
+- **R (ape, phangorn, ggtree)**
+- **MAFFT / MUSCLE**
+- **NCBI BLASTn**
+- **GitHub para control de versiones**
+
+---
+
+## 👨‍🔬 Autor
+Estudiante: *[Pedro Fernando Laynes Zela]*
+Proyecto académico – Universidad *[Universidad Nacional Mayor de San Marcos]*
+Curso: Herramientas Bioinformáticas
+
+---
+
+## 📎 Contacto
+Si alguien desea reutilizar o revisar este pipeline, puede contactar vía correo académico.
+
+
+
+
