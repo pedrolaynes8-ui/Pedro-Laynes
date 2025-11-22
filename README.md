@@ -1,39 +1,38 @@
-# Caracterización molecular de larvas de anisákidos (Nematoda: Anisakidae) en peces comerciales de Loreto - Perú, mediante el análisis del gen mitocondrial COX II
+# Caracterización molecular de larvas de anisákidos (Nematoda: Anisakidae) en peces comerciales de Loreto - Perú
 
-# Objetivo general
-Caracterizar molecularmente larvas de nemátodos de la familia Anisakidae presentes en peces de importancia comercial de la región Loreto, Perú, mediante secuenciación del gen mitocondrial cox2 y análisis filogenéticos.
+## Descripción
+Este repositorio contiene el flujo bioinformático aplicado a larvas de nemátodos de la familia Anisakidae obtenidas de peces comerciales en Loreto, Perú.
+El análisis se basa en la secuenciación Sanger del gen mitocondrial COX2.
 
-# Objetivos específicos
-● Identificar morfotipos larvales de nemátodos anisákidos recuperados de peces comerciales mediante análisis morfológicos y morfométricos.
-● Determinar la identidad taxonómica de las larvas mediante secuenciación del gen mitocondrial cox2 y análisis filogenético comparativo con especies de referencia.
-● Evaluar la diversidad genética intra e interespecífica de los anisákidos identificados, mediante el análisis de haplotipos y cálculo de parámetros poblacionales.
+## Hipótesis
+**H1:** El uso de herramientas moleculares permite identificar e inferir la diversidad genética de nemátodos Anisakidae presentes en peces comerciales en Loreto.
 
-# Introducción
-El ecosistema Amazónico está conformado por innumerables ríos, quebradas, lagunas, cochas y pantanos, cuyas aguas, son lugares adecuados para la vida y desarrollo de las poblaciones ícticas por sus condiciones físicas, químicas y biológicas (Tello & Cánepa, 1991; García-Dávila et al., 2018).
-Los ríos son desde épocas remotas, la principal fuente de obtención de proteína para el poblador amazónico, siendo la pesca una de las actividades más importantes en su quehacer diario (Murrieta et a., 2022), no solo debido a la importancia que tiene para la alimentación, sino también por ser considerada una de las principales actividades económicas para estas poblaciones, ya que la venta del pescado genera ingresos que permiten suplir sus necesidades básicas (García et al., 2014).
-En ese sentido los peces amazónicos peruanos, por su variedad, abundancia, belleza y alto valor en el mercado internacional, han dado origen a un negocio sumamente lucrativo que, en la actualidad, representa movimientos económicos del orden de millares de dólares (USA), generando significativos ingresos al fisco por concepto de divisas (Tello & Cánepa, 1991).
-El consumo de pescado de agua dulce de los pueblos indígenas de la cuenca amazónica es uno de los más altos del mundo, el cual suple requerimientos nutricionales de sus habitantes y genera ingresos económicos familiares (Jácome-Negrete et al., 2023) y en la ciudad de Iquitos, que es la ciudad más importante de la región Loreto, la actividad pesquera es considerada el principal mercado y el puerto de destino comercial obligado en la selva peruana (García et al., 2012).
+## Objetivos
+- Caracterización molecular de larvas de Anisakidae mediante secuenciación del gen COX2.
+- Identificación taxonómica mediante análisis filogenético.
+- Evaluación de diversidad genética intra e interespecífica.
 
-## Nemátodos anisákidos y su ciclo de vida
-Los anisákidos son nematodos parásitos pertenecientes al filo Nemathelmintes, clase Nematoda, orden Ascarida, suborden Ascaridina, superfamilia Ascaridoidea, familia Anisakidae y subfamilia Anisakinae (Aibinu et al., 2019). Dentro de esta familia, Anisakis es el género más conocido debido a su abundancia e importancia zoonótica (Shamsi et al., 2017).
-Se sabe que el ciclo de vida de muchos patógenos implica transiciones entre distintas etapas de desarrollo que son necesarias para su transmisión (Łopien´ska-Biernat et al., 2019). En este sentido las especies del género Anisakis tienen un ciclo de vida complejo que involucra a varios hospedadores (Ivanovic et al., 2017). Su ciclo de vida es acuático, principalmente marino, y en su fase adulta tienen como huéspedes definitivos a los mamíferos marinos como delfines, focas y las aves piscívoras, y como huéspedes intermediarios/paraténicos a los crustáceos, cefalópodos y peces (Adroher-Auroux & Benítez-Rodríguez, 2020; Aibinu et al., 2019).
-<img width="850" height="844" alt="image" src="https://github.com/user-attachments/assets/b9303cad-eadb-42c6-bcf8-0e698088a2c2" />
+## Muestras y secuencias
+- 100 peces analizados, 20 especies diferentes.
+- 4 larvas procesadas: 453, 454, 455, 456.
+- Secuencias Forward y Reverse, procesadas a FASTA limpio.
 
-El ciclo se describe de la siguiente forma: Los huéspedes definitivos de cetáceos infectados excretan huevos de Anisakis en sus heces al medio acuático, dentro de estos huevos se desarrollan larvas individuales de primer estadio (L1) y luego de segundo estadio (L2). Los huevos larvados eclosionan y liberan larvas L2 móviles y de vida libre, que son ingeridas por huéspedes intermediarios crustáceos, en los que las L2 se convierten en larvas de tercer estadio (L3) y finalmente los crustáceos infectados con L3 son posteriormente consumidos por peces o calamares (huéspedes paraténicos), en los que las L3 penetran en el intestino y se encapsulan en tejidos, especialmente en el mesenterio y el hígado. (Baird et al., 2014).
-Aunque este ciclo está bien documentado en ambientes marinos, los reportes de anisákidos en ecosistemas de agua dulce son aún muy limitados, lo que plantea interrogantes sobre su posible adaptación y relevancia epidemiológica en ríos amazónicos (Airahuacho et al., 2019; Brisson-Bonenfant et al., 2024).
-La OMS (Organización Mundial de la Salud, 2012) estima aproximadamente 56 millones de casos de infecciones parasitarias asociadas al consumo de productos pesqueros (Aibinu et al., 2019). Anisakis se considera un parásito zoonótico emergente a nivel mundial (Shamsi et al., 2017) y su presencia o sus proteínas en alimentos marinos representa un riesgo para la salud humana (Airahuacho et al., 2019).
+## Scripts y pipeline
+- `/scripts/01_clean_fasta.py` : limpieza y generación de secuencias consenso
+- `/scripts/02_phylogeny.py` : alineamiento múltiple y preparación de árboles
+- Flujo resumido:
+  1. Lectura de archivos AB1
+  2. Limpieza y generación de consenso
+  3. BLAST preliminar
+  4. Alineamiento múltiple (MAFFT/MUSCLE)
+  5. Árboles filogenéticos (NJ, ML, Bayesian)
+  6. Análisis de diversidad genética
 
-Las especies del género Anisakis muestran una complejidad única y biológicamente interesante durante sus interacciones con sus hospedadores (Łopien´ ska-Biernat et al., 2019). La zoonosis generada por larvas viables de estadio infectivo (L3) de estos nematodos se denomina anisakidosis o anisakiais (Castellanos – Garzon et al, 2020), que pueden estar presentes en peces y calamares hospederos, especialmente en el tejido muscular, mientras los que están en la cavidad visceral se eliminan al destripar el pescado para fines culinarios (Adroher-Auroux & Benítez-Rodríguez, 2020). Los humanos pueden actuar como huéspedes accidentales y adquirir la infección a través del consumo de pescado y calamares crudos, ahumados, marinados, salados o poco cocidos infectados por la etapa larvaria L3 (Mattiucci et al., 2017; Ivanovic et al., 2017; Aibinu et al., 2019, Trumbic et al., 2021) de las especies de Anisakidae: Anisakis simplex, A. physeteris, Pseudoterranova decipiens o Contracaecum osculatum (Cabrera et al, 2004).
-
-Esta Anisakidosis puede ser asintomática o sintomática hasta requerir atención en urgencias (Brisson-Bonenfant et al., 2024; Ivanovic et al., 2017). Cuando son sintomáticas, tras la ingestión, las larvas de Anisakis migran al tracto digestivo humano, invaden la pared intestinal y provocan diversos síntomas según el lugar donde se asienten (Baron et a., 2014). Los síntomas, que pueden ser variados, incluyen manifestaciones gastrointestinales como náuseas, dolor abdominal intenso, vómitos y dolor gástrico o intestinal (Brisson-Bonenfant et al., 2024; Aibinu et al., 2019; Shamsi & Suthar, 2016).
-
-También existen numerosos casos de infecciones accidentales fallidas en humanos que pueden provocar una reacción inmunitaria aguda del huésped y la muerte del parásito sin completar su ciclo de vida, lo que se ajustaría a una definición más estricta de huésped accidental (Trumbic et al., 2021; Łopieńska-Biernat et al., 2020), en cuanto a las reacciones alérgicas estas han sido ampliamente reportadas (Bracho, 2019). Los helmintos no suelen inducir respuestas alérgicas en humanos, mientras que Anisakis sí lo hace (Ivanovic et al., 2017).
-La vigilancia y caracterización de larvas en peces de consumo humano son esenciales para la salud pública, especialmente en regiones donde el pescado forma parte integral de la dieta local. Se están tomando decisiones sobre los riesgos asociados al consumo de mariscos y las políticas de seguridad alimentaria de estos productos, basándose en estudios sobre la prevalencia y abundancia de larvas de anisákidos en peces (Shamsi & Suthar, 2016)
-
-De acuerdo a Cabrera 1994, en el Perú, la presencia de anisakidos en peces marinos se reportó por primera vez por el Tantalean en 1972, señalando que 48% de los jureles muestreados estaban infectados por estas larvas, destacando así una importancia zoonotica.
-Posteriormente en los años 1997 y 1998 durante el fenómeno del niño se dio una gran prevalencia de Anisakis physeteris en el Perico, sin embargo en ausencia de este fenómeno esta zoonosis prodria ser más frecuente al consumir jurel y caballa que son peces de mayor desembarque y consumo (Cabrera & Trillo-Altamirano, 2004).
-
-## Identificación Morfológica y Molecular
-La identificación de larvas zoonóticas de anisákidos intactas a nivel de género es posible gracias a las características anato morfológicas visibles con microscopio óptico: estructuras cefálicas y caudales (diente perforante, ubicación del poro excretor), extremo posterior (forma de la cola, presencia de mucrón), así como la estructura de los elementos gastrointestinales (presencia o ausencia de ciego intestinal y apéndice ventricular) (Kołodziejczyk et al., 2020). Sin embargo, estos caracteres no son suficientes
-
-
+## Estructura del repositorio
+/data/ --> datos crudos y procesados
+/scripts/ --> scripts de análisis
+/results/ --> alineamientos y árboles
+/docs/ --> informes y pipeline documentado
+/notebooks/ --> notebooks de Google Colab
+/docs/ --> informes y pipeline documentado
+/notebooks/ --> notebooks de Google Colab
